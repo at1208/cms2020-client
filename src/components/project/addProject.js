@@ -6,13 +6,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Button from '@material-ui/core/Button';
 import ProjectStyle from './style';
 const  styling = ProjectStyle();
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-const AddProject = () => {
+const AddProject = ({ onClose }) => {
       const [project, setProject] = useState({
             projectName:"",
             domainAddress:"",
@@ -47,6 +48,7 @@ const AddProject = () => {
           <Layout>
                <div className="row justify-content-center">
                  <div className="col-md-6 card" style={styling.addProjectCard}>
+                  <h1 style={styling.title}>ADD PROJECT</h1>
                   <form>
                   <TextField
                           onChange={(e) => setProject({...project, projectName: e.target.value })}
@@ -109,7 +111,9 @@ const AddProject = () => {
                         <TextField {...params} variant="outlined" label="Add team leader" placeholder="Add team leader" />
                         )}
                     />
+                      <Button variant="contained" color="primary" size="large" style={styling.createBtn} fullWidth>Create Project</Button>
                   </form>
+                    <Button variant="contained" color="primary" style={styling.closeBtn} onClick={() => onClose(false)}>Close</Button>
                </div>
             </div>
           </Layout>
