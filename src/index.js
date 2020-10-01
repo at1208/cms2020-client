@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
+import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 import "./style.css";
 
 import SignIn from './components/signin/signin';
