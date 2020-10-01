@@ -27,7 +27,7 @@ const SignInStyle = () => {
                 border:"0px solid black",
               },
               companyName:{
-                fontSize:"26px",
+                fontSize:"23px",
                 fontWeight:"500"
               }
          }

@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { useHistory } from 'react-router-dom';
 import SignInStyle from './style';
 const  styling = SignInStyle();
 
 const SignIn = () => {
-
+  const history = useHistory();
   const [credentials, setCredentials] = useState({
          email: "",
          password: ""
   });
   const handleSubmit = (e) => {
-        e.preventDefault();
+         e.preventDefault();
+         history.push("/dashboard");
         // console.log(credentials)
   }
   return  <>
@@ -18,7 +20,7 @@ const SignIn = () => {
                      <div style={styling.centerCard} className="loginContainer">
                           <div className="row justify-content-center">
                              <div className="col-6">
-                               <font style={styling.companyName}>Geeks Ocean</font>
+                               <font style={styling.companyName}>Company Name</font>
                              </div>
                              <div className="col-3">
                                  <img src="/logo.png" width={50}/>
