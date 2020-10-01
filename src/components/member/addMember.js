@@ -4,13 +4,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Button from '@material-ui/core/Button';
 import MemberStyle from './style';
 const  styling = MemberStyle();
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-const AddMember = () => {
+const AddMember = ({ onClose }) => {
   const [member, setMember] = useState({
         name:"",
         emailId:"",
@@ -38,7 +39,8 @@ const AddMember = () => {
   return <>
            <div className="row justify-content-center">
              <div className="col-md-6 card" style={styling.addMemberCard}>
-                 <form>
+                <h1 style={styling.title}>ADD MEMBER</h1>
+                 <form style={styling.addMemberForm}>
                     <TextField
                         variant="outlined"
                         fullWidth
@@ -107,7 +109,9 @@ const AddMember = () => {
                         <TextField {...params} variant="outlined" label="Department"  />
                         )}
                     />
+                      <Button variant="contained" color="primary" size="large" style={styling.inviteBtn} fullWidth>Invite on board!</Button>
                  </form>
+                  <Button variant="contained" color="primary" style={styling.closeBtn} onClick={() => onClose(false)}>Close</Button>
              </div>
            </div>
          </>
