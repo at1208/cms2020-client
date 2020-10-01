@@ -10,6 +10,8 @@ import Projects from './components/project/project';
 import Members from './components/member/member';
 import Department from './components/department/department';
 import Designation from './components/designation/designation';
+import Workspace from './components/workspace/article/article';
+import AddArticle from './components/workspace/article/writeArticle';
 
 ReactDOM.render(<BrowserRouter>
                   <Route path="/" component={SignIn} exact/>
@@ -18,5 +20,7 @@ ReactDOM.render(<BrowserRouter>
                   <Route path="/projects" component={Projects} exact/>
                   <Route path="/department" component={Department} exact/>
                   <Route path="/designation" component={Designation} exact/>
+                  <Route path="/workspace/article" component={Workspace} exact/>
+                  <Route path="/workspace/article/write" component={AddArticle} exact/>
                 </BrowserRouter>,
                 document.getElementById('root'))

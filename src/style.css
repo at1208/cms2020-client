@@ -6,7 +6,7 @@
 @media (max-width:767px) {
   .loginContainer{
     position:fixed;
-    top: 28%!important;
+    top: 24%!important;
     left:0px!important;
     right:0px!important;
   }
@@ -15,7 +15,7 @@
 @media (min-width: 768px) and (max-width: 1160px) {
   .loginContainer{
     position:fixed;
-    top: 28%!important;
+    top: 24%!important;
     left:28%!important;
     right:28%!important;
   }

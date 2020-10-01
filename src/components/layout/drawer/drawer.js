@@ -85,7 +85,7 @@ export default function PersistentDrawerLeft({ data }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [openProjectCollapse, setOpenProjectCollapse] = useState(false);
+  const [openWorkspaceCollapse, setOpenWorkspaceCollapse] = useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -96,8 +96,8 @@ export default function PersistentDrawerLeft({ data }) {
   };
 
 
-  function handleOpenProject(){
-   setOpenProjectCollapse(!openProjectCollapse);
+  function handleOpenWorkspace(){
+   setOpenWorkspaceCollapse(!openWorkspaceCollapse);
 }
 
 
@@ -149,6 +149,15 @@ export default function PersistentDrawerLeft({ data }) {
             </ListItem>
           </List>
         </Link>*/}
+        <Link to="/dashboard">
+          <List>
+            <ListItem button>
+              <ListItemIcon><InboxIcon /></ListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+          </List>
+        </Link>
+
         <Link to="/projects">
           <List>
             <ListItem button>
@@ -172,15 +181,6 @@ export default function PersistentDrawerLeft({ data }) {
             <ListItem button>
               <ListItemIcon><InboxIcon /></ListItemIcon>
               <ListItemText primary="Department" />
-            </ListItem>
-          </List>
-        </Link>
-
-        <Link to="/designation">
-          <List>
-            <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
-              <ListItemText primary="Designation" />
             </ListItem>
           </List>
         </Link>
@@ -232,29 +232,35 @@ export default function PersistentDrawerLeft({ data }) {
 
 
 
-       {/*<ListItem button onClick={handleOpenProject}>
+       <ListItem button onClick={handleOpenWorkspace}>
        <ListItemIcon>
          <InboxIcon />
        </ListItemIcon>
-       <ListItemText primary="Product" />
-       {openProjectCollapse ? <ExpandLess  /> : <ExpandMore  />}
+       <ListItemText primary="Work space" />
+       {openWorkspaceCollapse ? <ExpandLess  /> : <ExpandMore  />}
       </ListItem>
-      <Collapse in={openProjectCollapse} timeout="auto" unmountOnExit>
+      <Collapse in={openWorkspaceCollapse} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
+         <Link to="/workspace/article">
           <ListItem button>
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
-            <ListItemText primary='See Products' />
+            <ListItemText primary="Article" />
           </ListItem>
+         </Link>
+         <Link to="/workspace/article/write">
           <ListItem button>
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
-            <ListItemText primary='Add Product' />
+            <ListItemText primary='Write article' />
           </ListItem>
+          </Link>
         </List>
-      </Collapse>*/}
+      </Collapse>
+
+
       </Drawer>
       <main
         className={clsx(classes.content, {

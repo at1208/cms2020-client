@@ -4,7 +4,7 @@ const SignInStyle = () => {
                 position:"fixed",
                 margin:"2px",
                 boxShadow:"0 .5rem 1rem rgba(0,0,0,.15)",
-                top:"24%",
+                top:"20%",
                 left:"35%",
                 right:"35%",
                 padding:"15px 20px 15px 20px",
