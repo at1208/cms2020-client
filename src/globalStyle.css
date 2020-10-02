@@ -1,0 +1,71 @@
+ @media (max-width:767px) {
+  .loginContainer{
+    position:fixed;
+    top: 24%!important;
+    left:0px!important;
+    right:0px!important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1160px) {
+  .loginContainer{
+    position:fixed;
+    top: 24%!important;
+    left:28%!important;
+    right:28%!important;
+  }
+}
+.makeStyles-content-9{
+  padding:6px!important;
+}
+.projectInput{
+  margin-top: 10px!important;
+  margin-bottom: 10px;
+}
+.MuiList-padding{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.rdw-editor-main {
+    padding:10px!important;
+    background: white!important;
+    border: 1px solid #dedbdb!important;
+}
+.MuiInputBase-input{
+  background-color: white!important;
+}
+.MuiAutocomplete-inputRoot{
+    background-color: white!important;
+}
+.MuiDrawer-paperAnchorLeft{
+  /* background: linear-gradient(45deg, #da5b6c 30%, #404692 90%)!important; */
+  background-color: white!important;
+  width: 200px!important;
+}
+.MuiListItem-gutters {
+    padding-left: 31px!important;
+}
+.MuiList-padding {
+    padding-top: 2px!important;
+    padding-bottom: 2px!important;
+}
+.MuiListItem-root {
+  box-shadow: #E9ECEE 0px 0.1rem .3rem;
+  margin-top: 1px!important;
+  margin-bottom: 1px!important;
+ padding-top:5px!important;
+ padding-bottom:5px!important;
+}
+body{
+  background-color: #eff3f6;
+}
+a{
+  color: black;
+  text-decoration: none!important;
+}
+.MuiTypography-root{
+  font-weight: 800!important;
+}
+.MuiOutlinedInput-multiline{
+  background: white;
+}

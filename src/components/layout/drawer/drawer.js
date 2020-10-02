@@ -20,7 +20,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse'
-import {Link} from 'react-router-dom';
+import {Link,withRouter} from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -81,20 +81,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PersistentDrawerLeft({ data }) {
+ function PersistentDrawerLeft({ data, match }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  const [openWorkspaceCollapse, setOpenWorkspaceCollapse] = useState(true);
+  const [open, setOpen] = React.useState(true);
+  const [openWorkspaceCollapse, setOpenWorkspaceCollapse] = useState(false);
 
   const handleDrawerOpen = () => {
-    setOpen(true);
+    // setOpen(true);
   };
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    // setOpen(false);
   };
 
+ const isActive = (path) => {
+   if(match.path === path){
+     return { background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)', color:"white"}
+   }
+ }
 
   function handleOpenWorkspace(){
    setOpenWorkspaceCollapse(!openWorkspaceCollapse);
@@ -105,27 +110,7 @@ export default function PersistentDrawerLeft({ data }) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-           Company Name
-          </Typography>
-        </Toolbar>
-      </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -136,23 +121,22 @@ export default function PersistentDrawerLeft({ data }) {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          {/*<IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
+          </IconButton>*/}
         </div>
-        <Divider />
-        {/*<Link to="/profile">
+
+        <Link to="/profile">
           <List>
-            <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItem button style={isActive('/profile')}>
               <ListItemText primary="Profile" />
             </ListItem>
           </List>
-        </Link>*/}
+        </Link>
+
         <Link to="/dashboard">
           <List>
-            <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItem button style={isActive('/dashboard')}>
               <ListItemText primary="Dashboard" />
             </ListItem>
           </List>
@@ -160,8 +144,7 @@ export default function PersistentDrawerLeft({ data }) {
 
         <Link to="/projects">
           <List>
-            <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItem button style={isActive('/projects')}>
               <ListItemText primary="Project" />
             </ListItem>
           </List>
@@ -169,8 +152,7 @@ export default function PersistentDrawerLeft({ data }) {
 
         <Link to="/member">
           <List>
-            <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItem button style={isActive('/member')}>
               <ListItemText primary="Member" />
             </ListItem>
           </List>
@@ -178,17 +160,23 @@ export default function PersistentDrawerLeft({ data }) {
 
         <Link to="/department">
           <List>
-            <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItem button style={isActive('/department')}>
               <ListItemText primary="Department" />
             </ListItem>
           </List>
         </Link>
 
-        {/*<Link to="/contact">
+        <Link to="/designation">
           <List>
-            <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItem button style={isActive('/designation')}>
+              <ListItemText primary="Designation" />
+            </ListItem>
+          </List>
+        </Link>
+
+        <Link to="/contact">
+          <List>
+            <ListItem button style={isActive('/contact')}>
               <ListItemText primary="Contact" />
             </ListItem>
           </List>
@@ -196,14 +184,13 @@ export default function PersistentDrawerLeft({ data }) {
 
         <Link to="/offerletter">
           <List>
-            <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
+            <ListItem button style={isActive('/offerletter')}>
               <ListItemText primary="Offer letter" />
             </ListItem>
           </List>
         </Link>
 
-        <Link to="/holiday">
+      { /* <Link to="/holiday">
           <List>
             <ListItem button>
               <ListItemIcon><InboxIcon /></ListItemIcon>
@@ -232,31 +219,35 @@ export default function PersistentDrawerLeft({ data }) {
 
 
 
-       <ListItem button onClick={handleOpenWorkspace}>
-       <ListItemIcon>
-         <InboxIcon />
-       </ListItemIcon>
+       <ListItem button onClick={handleOpenWorkspace} >
        <ListItemText primary="Work space" />
        {openWorkspaceCollapse ? <ExpandLess  /> : <ExpandMore  />}
       </ListItem>
       <Collapse in={openWorkspaceCollapse} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
          <Link to="/workspace/article">
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Article" />
+          <ListItem button style={isActive('/workspace/article')}>
+            <ListItemText primary="All articles" />
           </ListItem>
          </Link>
-         <Link to="/workspace/article/write">
-          <ListItem button>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
+          <Link to="/workspace/article/write">
+           <ListItem button style={isActive('/workspace/article/write')}>
             <ListItemText primary='Write article' />
           </ListItem>
           </Link>
+
+          <Link to="/workspace/article/categories">
+           <ListItem button style={isActive('/workspace/article/categories')}>
+            <ListItemText primary='Categories' />
+          </ListItem>
+          </Link>
+
+          <Link to="/workspace/article/tags">
+           <ListItem button style={isActive('/workspace/article/tags')}>
+            <ListItemText primary='Tags' />
+          </ListItem>
+          </Link>
+
         </List>
       </Collapse>
 
@@ -273,3 +264,5 @@ export default function PersistentDrawerLeft({ data }) {
     </div>
   );
 }
+
+export default withRouter(PersistentDrawerLeft)

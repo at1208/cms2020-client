@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { useHistory } from 'react-router-dom';
 import SignInStyle from './style';
 const  styling = SignInStyle();
@@ -17,17 +18,13 @@ const SignIn = () => {
   }
   return  <>
             <div>
+               <h1 style={styling.title}>Management Login</h1>
                      <div style={styling.centerCard} className="loginContainer">
-                          <div className="row justify-content-center">
-                             <div className="col-6">
-                               <font style={styling.companyName}>Company Name</font>
-                             </div>
-                             <div className="col-3">
-                                 <img src="/logo.png" width={50}/>
-                             </div>
-                          </div>
-                          <hr />
-                          <form onSubmit={handleSubmit}>
+                        {/*  <div className="row justify-content-center">
+                              <font style={styling.companyName}>Company Logo</font>
+                          </div>*/}
+
+                          <form onSubmit={handleSubmit} style={styling.form}>
                              <TextField
                                      variant="outlined"
                                      label="Email"
@@ -45,7 +42,7 @@ const SignIn = () => {
                                      onChange={(e) => setCredentials({...credentials, password: e.target.value })} />
                               <br />
                              <button style={styling.submitButton}
-                                     className="loginbtn"
+                                     className="loginbtn btn-block"
                                      onClick={handleSubmit}>
                                      Login
                               </button>
