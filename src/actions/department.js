@@ -14,7 +14,7 @@ export const createDepartment = (body) => {
         .catch(err => console.log(err));
 };
 
-export const getDepartments = (body) => {
+export const getDepartments = () => {
     return fetch(`${process.env.REACT_APP_API}/get/departments`, {
         method: 'GET',
         headers: {

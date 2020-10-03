@@ -14,7 +14,7 @@ export const createDesignation = (body) => {
         .catch(err => console.log(err));
 };
 
-export const getDesignations = (body) => {
+export const getDesignations = () => {
     return fetch(`${process.env.REACT_APP_API}/get/designations`, {
         method: 'GET',
         headers: {

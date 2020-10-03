@@ -22,19 +22,19 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse'
 import {Link,withRouter} from 'react-router-dom';
 
-// const drawerWidth = 100;
+const drawerWidth = 0;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
-  // drawer: {
-  //   width: drawerWidth,
-  //   flexShrink: 0,
-  // },
-  // drawerPaper: {
-  //   width: drawerWidth,
-  // },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
