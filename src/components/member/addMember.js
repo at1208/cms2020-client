@@ -6,6 +6,9 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
+import { useToast } from "@chakra-ui/core";
+import { getDepartments } from '../../actions/department'
+import { getDesignations } from '../../actions/designation'
 import MemberStyle from './style';
 const  styling = MemberStyle();
 
@@ -13,6 +16,11 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const AddMember = ({ onClose }) => {
+  const toast = useToast();
+  const [departments, setDepartment] = useState([]);
+  const [designations, setDesignation] = useState([]);
+
+
   const [member, setMember] = useState({
         name:"",
         emailId:"",
@@ -22,20 +30,43 @@ const AddMember = ({ onClose }) => {
         dateOfJoining:""
   })
 
-  const top100Films = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 },
-    { title: 'The Dark Knight', year: 2008 },
-    { title: '12 Angry Men', year: 1957 },
-    { title: "Schindler's List", year: 1993 },
-    { title: 'Pulp Fiction', year: 1994 },
-    { title: 'The Lord of the Rings: The Return of the King', year: 2003 },
-    { title: 'The Good, the Bad and the Ugly', year: 1966 },
-    { title: 'Fight Club', year: 1999 },
-    { title: 'The Lord of the Rings: The Fellowship of the Ring', year: 2001 },
-    { title: 'Star Wars: Episode V - The Empire Strikes Back', year: 1980 }
-  ];
+  const toaster = (title, description, status) => {
+        return toast({
+        position: "top",
+        title: title,
+        description: description,
+        status: status,
+        duration: 5000,
+        isClosable: true,
+        })
+  }
+
+  useEffect(() => {
+    getDepartments()
+      .then(response => {
+        if(response.error){
+          return console.log(response.error)
+        }
+        setDepartment(response.result)
+      })
+      .catch((err) => {
+         return toaster("Something went wrong!", "Please try after sometime", "error")
+      })
+  },[])
+
+  useEffect(() => {
+    getDesignations()
+      .then(response => {
+        if(response.error){
+          return console.log(response.error)
+        }
+        setDesignation(response.result)
+      })
+      .catch((err) => {
+         return toaster("Something went wrong!", "Please try after sometime", "error")
+      })
+  },[])
+
 
   return <>
            <div className="row justify-content-center">
@@ -68,12 +99,11 @@ const AddMember = ({ onClose }) => {
                     />
                     <Autocomplete
                         multiple
-                        id="team-member"
-                        options={top100Films}
+                        options={designations}
                         fullWidth
                         style={styling.memberInput}
                         disableCloseOnSelect
-                        getOptionLabel={(option) => option.title}
+                        getOptionLabel={(option) => option.designationName}
                         renderOption={(option, { selected }) => (
                         <React.Fragment>
                         <Checkbox
@@ -81,7 +111,7 @@ const AddMember = ({ onClose }) => {
                         checkedIcon={checkedIcon}
                         checked={selected}
                         />
-                        {option.title}
+                        {option.designationName}
                         </React.Fragment>
                         )}
                         renderInput={(params) => (
@@ -90,12 +120,11 @@ const AddMember = ({ onClose }) => {
                     />
                     <Autocomplete
                         multiple
-                        id="team-member"
-                        options={top100Films}
+                        options={departments}
                         fullWidth
                         style={styling.memberInput}
                         disableCloseOnSelect
-                        getOptionLabel={(option) => option.title}
+                        getOptionLabel={(option) => option.departmentName}
                         renderOption={(option, { selected }) => (
                         <React.Fragment>
                         <Checkbox
@@ -103,7 +132,7 @@ const AddMember = ({ onClose }) => {
                         checkedIcon={checkedIcon}
                         checked={selected}
                         />
-                        {option.title}
+                        {option.departmentName}
                         </React.Fragment>
                         )}
                         renderInput={(params) => (

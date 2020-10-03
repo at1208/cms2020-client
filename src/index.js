@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import "./globalStyle.css";
 import { ThemeProvider } from "@chakra-ui/core";
 

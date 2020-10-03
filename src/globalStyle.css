@@ -69,3 +69,17 @@ a{
 .MuiOutlinedInput-multiline{
   background: white;
 }
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width:100%;
+
+}
+th{
+background-color: #dee2e6;
+}
+td, th {
+border: 1px solid #ede7f6;
+text-align: left;
+padding: 8px;
+}

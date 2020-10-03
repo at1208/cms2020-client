@@ -27,6 +27,9 @@ const DepartmentStyle = () => {
             },
             addDepBtn:{
                 background:"#d9d9d9",
+            },
+            departmentTableCard:{
+                padding:"20px 30px 20px 30px"
             }
          }
 }

@@ -27,6 +27,9 @@ const DesignationStyle = () => {
             },
             addDesBtn:{
                 background:"#d9d9d9",
+            },
+            designationTableCard:{
+              padding:"20px 30px 20px 30px"
             }
          }
 }
