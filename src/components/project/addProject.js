@@ -49,7 +49,7 @@ const AddProject = ({ onClose }) => {
           <Layout>
                <div className="row justify-content-center">
                  <div className="col-md-6 card" style={styling.addProjectCard}>
-                  <h1 style={styling.title}>ADD PROJECT</h1>
+                  <h1 style={styling.title}>Add Project</h1>
                   <form>
                   <TextField
                           onChange={(e) => setProject({...project, projectName: e.target.value })}
