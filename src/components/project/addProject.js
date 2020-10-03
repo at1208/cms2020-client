@@ -8,6 +8,7 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Button from '@material-ui/core/Button';
 import ProjectStyle from './style';
+import CloseIcon from '@material-ui/icons/Close';
 const  styling = ProjectStyle();
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
@@ -113,7 +114,7 @@ const AddProject = ({ onClose }) => {
                     />
                       <Button variant="contained" color="primary" size="large" style={styling.createBtn} fullWidth>Create Project</Button>
                   </form>
-                    <Button variant="contained" color="primary" style={styling.closeBtn} onClick={() => onClose(false)}>Close</Button>
+                    <Button variant="contained" color="secondary" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
                </div>
             </div>
           </Layout>

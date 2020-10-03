@@ -15,7 +15,7 @@ const Member = () => {
    return <>
            <Layout>
            {!addMember && <div style={styling.addMemberContainer}>
-                <Button variant="contained" color="primary" onClick={handleChange}>Add Member</Button>
+                <Button variant="contained" style={styling.addMemBtn} onClick={handleChange}>Add Member</Button>
             </div>}
            {addMember && <AddMember onClose={(status) => setAddMember(false)}/>}
            </Layout>

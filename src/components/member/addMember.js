@@ -5,6 +5,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
 import MemberStyle from './style';
 const  styling = MemberStyle();
 
@@ -39,7 +40,7 @@ const AddMember = ({ onClose }) => {
   return <>
            <div className="row justify-content-center">
              <div className="col-md-6 card" style={styling.addMemberCard}>
-                <h1 style={styling.title}>ADD MEMBER</h1>
+                <h1 style={styling.title}>Add Member</h1>
                  <form style={styling.addMemberForm}>
                     <TextField
                         variant="outlined"
@@ -111,7 +112,7 @@ const AddMember = ({ onClose }) => {
                     />
                       <Button variant="contained" color="primary" size="large" style={styling.inviteBtn} fullWidth>Invite on board!</Button>
                  </form>
-                  <Button variant="contained" color="primary" style={styling.closeBtn} onClick={() => onClose(false)}>Close</Button>
+                  <Button variant="contained" color="secondary" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
              </div>
            </div>
          </>

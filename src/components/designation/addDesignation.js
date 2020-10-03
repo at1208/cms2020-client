@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DesignationStyle from './style';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
 
 const  styling = DesignationStyle();
 
@@ -13,8 +14,8 @@ const AddDesignation = ({ onClose }) => {
 
    return <>
            <div className="row justify-content-center">
-             <div className="col-md-6 card" style={styling.addDesignationCard}>
-                 <h1 style={styling.title}>ADD DESIGNATION</h1>
+             <div className="col-md-5 card" style={styling.addDesignationCard}>
+                 <h1 style={styling.title}>Add Designation</h1>
                  <form>
                      <TextField
                      variant="outlined"
@@ -25,7 +26,7 @@ const AddDesignation = ({ onClose }) => {
                      />
                       <Button variant="contained" color="primary" size="large" style={styling.createBtn} fullWidth>Create Designation</Button>
                  </form>
-                 <Button variant="contained" color="primary" style={styling.closeBtn} onClick={() => onClose(false)}>Close</Button>
+                 <Button variant="contained" color="secondary" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
               </div>
            </div>
           </>

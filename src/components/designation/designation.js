@@ -13,7 +13,7 @@ const Designation = () => {
    return <>
            <Layout>
            {!addDesignation && <div style={styling.addDesignationContainer}>
-                <Button variant="contained" color="primary" onClick={handleChange}>Add Designation</Button>
+                <Button variant="contained" style={styling.addDesBtn} onClick={handleChange}>Add Designation</Button>
             </div>}
                {addDesignation && <AddDesignation onClose={(status) => setAddDesignation(false)} />}
            </Layout>

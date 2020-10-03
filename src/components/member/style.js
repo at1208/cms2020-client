@@ -5,16 +5,20 @@ const SignInStyle = () => {
                marginBottom:"10px"
              },
              addMemberCard:{
-                padding:"30px 15px 30px 15px",
-                position:"fixed",
-                top:"20%"
+               borderBottom:"3px solid #FE6B8B",
+               padding:"30px 20px 30px 20px",
+               // minHeight:"310px"
+
              },
              addMemberContainer:{
-               padding:"10px 40px 10px 40px",
+               padding:"0px 40px 0px 40px",
                textAlign:"right"
              },
              title:{
-               textAlign:"center"
+               textAlign:"center",
+               marginTop:"25px",
+               fontSize:"35px",
+               marginBottom:"40px"
              },
              addMemberForm:{
                textAlign:"center"
@@ -22,10 +26,15 @@ const SignInStyle = () => {
              closeBtn:{
                position:"absolute",
                zIndex:"200",
-               right:"20px"
+               top:"0px",
+               right:"0px"
              },
              inviteBtn:{
-               marginTop:"20px"
+               background:"linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+               marginTop:"30px"
+             },
+             addMemBtn:{
+                 background:"#d9d9d9",
              }
          }
 }

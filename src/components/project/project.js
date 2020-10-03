@@ -13,7 +13,7 @@ const Project = () => {
   return <>
           <Layout>
           {!addProject && <div style={styling.addProjectContainer}>
-               <Button variant="contained" color="primary" onClick={handleChange}>Add Project</Button>
+               <Button variant="contained" style={styling.addProBtn} onClick={handleChange}>Add Project</Button>
            </div>}
           {addProject && <AddProject onClose={(status) => setAddProject(false)}/>}
           </Layout>

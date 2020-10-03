@@ -16,7 +16,7 @@ const Department = () => {
    return <>
            <Layout>
            {!addDepartment && <div style={styling.addDepartmentContainer}>
-                <Button variant="contained" color="primary" onClick={handleChange}>Add Department</Button>
+                <Button variant="contained"  style={styling.addDepBtn} onClick={handleChange}>Add Department</Button>
             </div>}
            {addDepartment && <AddDepartment onClose={(status) => setAddDepartment(false)}/>}
            </Layout>
