@@ -9,6 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import { useToast } from "@chakra-ui/core";
 import { getDepartments } from '../../actions/department'
 import { getDesignations } from '../../actions/designation'
+import { inviteonBoard } from '../../actions/auth';
 import MemberStyle from './style';
 const  styling = MemberStyle();
 
@@ -22,12 +23,12 @@ const AddMember = ({ onClose }) => {
 
 
   const [member, setMember] = useState({
-        name:"",
-        emailId:"",
+        firstName:"",
+        lastName:"",
+        email:"",
         contactNumber:"",
         department:"",
         designation:"",
-        dateOfJoining:""
   })
 
   const toaster = (title, description, status) => {
@@ -63,10 +64,36 @@ const AddMember = ({ onClose }) => {
         setDesignation(response.result)
       })
       .catch((err) => {
-         return toaster("Something went wrong!", "Please try after sometime", "error")
+         console.log(err)
       })
   },[])
 
+const handleInvitation = () => {
+  inviteonBoard(member)
+    .then(response => {
+      if(response.error){
+        return console.log(response.error)
+      }
+      console.log(response);
+    })
+    .catch((err) => {
+     return toaster("Something went wrong!", "Please try after sometime", "error")
+    })
+}
+
+const handleDesignation = (x, y) => {
+      const d =  y.map((item) => {
+         return item._id
+       })
+        setMember({...member, designation: d})
+}
+
+const handleDepartment = (x, y) => {
+      const e =  y.map((item) => {
+         return item._id
+       })
+        setMember({...member, department: e})
+}
 
   return <>
            <div className="row justify-content-center">
@@ -77,16 +104,24 @@ const AddMember = ({ onClose }) => {
                         variant="outlined"
                         fullWidth
                         style={styling.memberInput}
-                        value={member.name}
-                        onChange={(e) => setMember({...member, name:e.target.value})}
-                        label="Name"
+                        value={member.firstName}
+                        onChange={(e) => setMember({...member, firstName:e.target.value})}
+                        label="First name"
                     />
                     <TextField
                         variant="outlined"
                         fullWidth
                         style={styling.memberInput}
-                        value={member.emailId}
-                        onChange={(e) => setMember({...member, emailId:e.target.value})}
+                        value={member.lastName}
+                        onChange={(e) => setMember({...member, lastName:e.target.value})}
+                        label="Last name"
+                    />
+                    <TextField
+                        variant="outlined"
+                        fullWidth
+                        style={styling.memberInput}
+                        value={member.email}
+                        onChange={(e) => setMember({...member, email:e.target.value})}
                         label="Email Id"
                     />
                     <TextField
@@ -100,6 +135,7 @@ const AddMember = ({ onClose }) => {
                     <Autocomplete
                         multiple
                         options={designations}
+                        onChange={handleDesignation}
                         fullWidth
                         style={styling.memberInput}
                         disableCloseOnSelect
@@ -121,6 +157,7 @@ const AddMember = ({ onClose }) => {
                     <Autocomplete
                         multiple
                         options={departments}
+                        onChange={handleDepartment}
                         fullWidth
                         style={styling.memberInput}
                         disableCloseOnSelect
@@ -139,7 +176,7 @@ const AddMember = ({ onClose }) => {
                         <TextField {...params} variant="outlined" label="Department"  />
                         )}
                     />
-                      <Button variant="contained" color="primary" size="large" style={styling.inviteBtn} fullWidth>Invite on board!</Button>
+                      <Button variant="contained" color="primary" size="large" style={styling.inviteBtn} fullWidth onClick={handleInvitation}>Invite on board!</Button>
                  </form>
                   <Button variant="contained" color="secondary" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
              </div>

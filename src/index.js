@@ -21,6 +21,9 @@ import Tags from './components/workspace/article/tags';
 import Profile from './components/profile/profile';
 import Contact from './components/contact/contact';
 import OfferLetter from './components/offerletter/offerletter';
+import Invitation from './components/invitation/invitation';
+
+
 
 ReactDOM.render(<BrowserRouter>
                     <ThemeProvider>
@@ -29,6 +32,7 @@ ReactDOM.render(<BrowserRouter>
                         <Route path="/contact" component={Contact} exact/>
                         <Route path="/offerletter" component={OfferLetter} exact/>
                         <Route path="/member" component={Members} exact/>
+                        <Route path="/auth/onboard/:token" component={Invitation} exact/>
                         <Route path="/projects" component={Projects} exact/>
                         <Route path="/profile" component={Profile} exact/>
                         <Route path="/department" component={Department} exact/>
