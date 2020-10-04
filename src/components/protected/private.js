@@ -1,15 +1,23 @@
-import React,{ Fragment,useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router-dom';
 import { isAuth } from '../../actions/auth';
 
-const Private = ({ children }) => {
-    const history = useHistory();
-    useEffect(() => {
-        if (!isAuth()) {
-            history.push(`/`);
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+        {...rest}
+        render={props =>
+            isAuth() ? (
+                <Component {...props} />
+            ) : (
+                <Redirect
+                    to={{
+                        pathname: '/',
+                        state: { from: props.location }
+                    }}
+                />
+            )
         }
-    }, []);
-    return <Fragment>{children}</Fragment>;
-};
+    ></Route>
+);
 
-export default Private;
+export default PrivateRoute;

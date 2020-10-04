@@ -37,8 +37,7 @@ const AddMember = ({ onClose }) => {
         title: title,
         description: description,
         status: status,
-        duration: 5000,
-        isClosable: true,
+        duration: 5000
         })
   }
 
@@ -72,9 +71,9 @@ const handleInvitation = () => {
   inviteonBoard(member)
     .then(response => {
       if(response.error){
-        return console.log(response.error)
+        return toaster("", response.error, "error")
       }
-      console.log(response);
+     return toaster(response.message, "", "success")
     })
     .catch((err) => {
      return toaster("Something went wrong!", "Please try after sometime", "error")

@@ -9,6 +9,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Button from '@material-ui/core/Button';
 import ProjectStyle from './style';
 import CloseIcon from '@material-ui/icons/Close';
+import { getMembers } from '../../actions/member';
 import { useToast } from "@chakra-ui/core";
 const  styling = ProjectStyle();
 
@@ -28,6 +29,7 @@ const AddProject = ({ onClose }) => {
             teamMember:"",
             teamLeader:""
        });
+      const [members, setMember] = useState([]);
 
    const { projectName, domainAddress, projectLogo, teamMember, teamLeader } = project;
    const toaster = (title, description, status) => {
@@ -41,22 +43,27 @@ const AddProject = ({ onClose }) => {
          })
    }
 
+   useEffect(() => {
+      getMembers()
+        .then(response => {
+          if(response.error){
+            console.log(response)
+          }
+           setMember(response.result)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+   },[])
 
-  const top100Films = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 },
-  ];
 
   const handleProject = (e) => {
         e.preventDefault()
-        createProject({ projectName, domainAddress })
+        createProject(project)
          .then(response => {
            if(response.error){
-            return  console.log(response.error)
-             return toaster("Error!", response.error, "error")
+             return toaster("", response.error, "error")
            }
-           console.log(response)
            setProject({...project, projectName:"", domainAddress:"", teamMember:"", teamLeader:""})
            return toaster("Project created!", response.result, "success")
          })
@@ -65,7 +72,16 @@ const AddProject = ({ onClose }) => {
          })
   }
 
+  const handleTeamLeader = (x, y) => {
+          setProject({...project, teamLeader: y._id})
+  }
 
+  const handleTeamMember = (x, y) => {
+        const e =  y.map((item) => {
+           return item._id
+         })
+          setProject({...project, teamMember: e})
+  }
 
   return <>
           <Layout>
@@ -92,11 +108,12 @@ const AddProject = ({ onClose }) => {
                     <Autocomplete
                         multiple
                         id="team-member"
-                        options={top100Films}
+                        options={members}
+                        onChange={handleTeamMember}
                         fullWidth
                         disableCloseOnSelect
                         className="projectInput"
-                        getOptionLabel={(option) => option.title}
+                        getOptionLabel={(option) => option.fullName}
                         renderOption={(option, { selected }) => (
                         <React.Fragment>
                         <Checkbox
@@ -104,7 +121,7 @@ const AddProject = ({ onClose }) => {
                         checkedIcon={checkedIcon}
                         checked={selected}
                         />
-                        {option.title}
+                        {option.fullName}
                         </React.Fragment>
                         )}
                         renderInput={(params) => (
@@ -113,10 +130,11 @@ const AddProject = ({ onClose }) => {
                     />
                     <Autocomplete
                         id="team-member"
-                        options={top100Films}
+                        options={members}
+                        onChange={handleTeamLeader}
                         fullWidth
                         disableCloseOnSelect
-                        getOptionLabel={(option) => option.title}
+                        getOptionLabel={(option) => option.fullName}
                         renderOption={(option, { selected }) => (
                         <React.Fragment>
                         <Checkbox
@@ -125,7 +143,7 @@ const AddProject = ({ onClose }) => {
                         checkedIcon={checkedIcon}
                         checked={selected}
                         />
-                        {option.title}
+                        {option.fullName}
                         </React.Fragment>
                         )}
                         renderInput={(params) => (

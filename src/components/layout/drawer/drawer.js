@@ -168,10 +168,9 @@ const useStyles = makeStyles((theme) => ({
           </List>
         </Link>
 
-      { /* <Link to="/holiday">
+      <Link to="/holiday">
           <List>
             <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
               <ListItemText primary="Holiday" />
             </ListItem>
           </List>
@@ -180,7 +179,6 @@ const useStyles = makeStyles((theme) => ({
         <Link to="/leave">
           <List>
             <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
               <ListItemText primary="Leave" />
             </ListItem>
           </List>
@@ -189,11 +187,10 @@ const useStyles = makeStyles((theme) => ({
         <Link to="/leaverequest">
           <List>
             <ListItem button>
-              <ListItemIcon><InboxIcon /></ListItemIcon>
               <ListItemText primary="Leave request" />
             </ListItem>
           </List>
-        </Link>*/}
+        </Link>
 
 
 

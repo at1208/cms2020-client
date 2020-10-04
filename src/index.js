@@ -7,6 +7,8 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import "./globalStyle.css";
 import { ThemeProvider } from "@chakra-ui/core";
 
+import PrivateRoute from './components/protected/private';
+
 
 import SignIn from './components/signin/signin';
 import Dashboard from './components/dashboard/dashboard'
@@ -28,19 +30,22 @@ import Invitation from './components/invitation/invitation';
 ReactDOM.render(<BrowserRouter>
                     <ThemeProvider>
                         <Route path="/" component={SignIn} exact/>
-                        <Route path="/dashboard" component={Dashboard} exact/>
-                        <Route path="/contact" component={Contact} exact/>
-                        <Route path="/offerletter" component={OfferLetter} exact/>
-                        <Route path="/member" component={Members} exact/>
                         <Route path="/auth/onboard/:token" component={Invitation} exact/>
-                        <Route path="/projects" component={Projects} exact/>
-                        <Route path="/profile" component={Profile} exact/>
-                        <Route path="/department" component={Department} exact/>
-                        <Route path="/designation" component={Designation} exact/>
-                        <Route path="/workspace/article" component={Workspace} exact/>
-                        <Route path="/workspace/article/write" component={AddArticle} exact/>
-                        <Route path="/workspace/article/categories" component={Categories} exact/>
-                        <Route path="/workspace/article/tags" component={Tags} exact/>
+
+                        <PrivateRoute path="/dashboard" component={Dashboard} exact/>
+                        <PrivateRoute path="/workspace/article" component={Workspace} exact/>
+                        <PrivateRoute path="/workspace/article/write" component={AddArticle} exact/>
+                        <PrivateRoute path="/workspace/article/categories" component={Categories} exact/>
+                        <PrivateRoute path="/workspace/article/tags" component={Tags} exact/>
+                        <PrivateRoute path="/contact" component={Contact} exact/>
+                        <PrivateRoute path="/offerletter" component={OfferLetter} exact/>
+                        <PrivateRoute path="/member" component={Members} exact/>
+                        <PrivateRoute path="/projects" component={Projects} exact/>
+                        <PrivateRoute path="/profile" component={Profile} exact/>
+                        <PrivateRoute path="/department" component={Department} exact/>
+                        <PrivateRoute path="/designation" component={Designation} exact/>
+
+
                    </ThemeProvider>
                 </BrowserRouter>,
                 document.getElementById('root'))
