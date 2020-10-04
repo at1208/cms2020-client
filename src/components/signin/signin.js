@@ -1,19 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { useHistory } from 'react-router-dom';
+import { signin, authenticate } from '../../actions/auth';
+import { useToast } from "@chakra-ui/core";
 import SignInStyle from './style';
 const  styling = SignInStyle();
 
+
 const SignIn = () => {
   const history = useHistory();
+  const toast = useToast();
+
+  const emailFromLS = () => {
+  if(localStorage.getItem("email")){
+     return JSON.parse(localStorage.getItem("email"));
+  }
+}
+
   const [credentials, setCredentials] = useState({
          email: "",
          password: ""
   });
+
+  const toaster = (title, description, status) => {
+        return toast({
+        position: "top",
+        title: title,
+        description: description,
+        status: status,
+        duration: 5000,
+        })
+  }
+
+  useEffect(() => {
+   return setCredentials({...credentials, email: emailFromLS()})
+ },[])
+
+
+
   const handleSubmit = (e) => {
          e.preventDefault();
-         history.push("/dashboard");
+         signin(credentials)
+           .then((response) => {
+             if(response.error){
+                return toaster(response.error,"", "error")
+             }
+             authenticate(response, () => {
+               history.push("/dashboard");
+             })
+           })
+           .catch((err) => {
+             console.log(err)
+           })
+
         // console.log(credentials)
   }
   return  <>
@@ -36,6 +76,7 @@ const SignIn = () => {
                              <TextField
                                      variant="outlined"
                                      label="Password"
+                                     type="password"
                                      fullWidth
                                      style={styling.passwordInput}
                                      value={credentials.password}

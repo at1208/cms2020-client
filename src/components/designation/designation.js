@@ -6,6 +6,7 @@ import { useToast } from "@chakra-ui/core";
 import AddDesignation from './addDesignation';
 import Button from '@material-ui/core/Button';
 import { getDesignations } from '../../actions/designation'
+
 const  styling = DesignationStyle();
 
 

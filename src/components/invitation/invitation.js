@@ -5,6 +5,8 @@ import { signup } from '../../actions/auth';
 import jwt from 'jsonwebtoken';
 import { useToast } from "@chakra-ui/core";
 import { useHistory } from 'react-router-dom';
+
+
 const  styling = InvitationStyle();
 
 
@@ -29,7 +31,7 @@ const Invitation  = ({ match }) => {
   }
 
   const { firstName, lastName, email, department, designation, contactNumber } = jwt.decode(match.params.token);
-  console.log( firstName, lastName, email, department, designation, contactNumber)
+  // console.log( firstName, lastName, email, department, designation, contactNumber)
   const validatePassword = () => {
     if(member.password !== member.confirmPassword){
       return false;
@@ -51,8 +53,10 @@ const Invitation  = ({ match }) => {
        if(response.result){
          return toaster(response.result,"", "warning")
        }
-       history.push('/')
-       return toaster(response.message,"", "success")
+
+        history.push('/')
+        toaster(response.message,"", "success")
+        return localStorage.setItem("email", JSON.stringify(email));
      })
      .catch((err) => {
        return toaster("Something went wrong!", "Please try after sometime", "error")

@@ -3,7 +3,7 @@ import MemberStyle from './style';
 import Layout from '../layout/layout'
 import AddMember from './addMember'
 import Button from '@material-ui/core/Button';
-
+import { getMembers } from '../../actions/member';
 
 const  styling = MemberStyle();
 
@@ -12,6 +12,19 @@ const Member = () => {
    const handleChange = () => {
       setAddMember(true)
    }
+   useEffect(() => {
+      getMembers()
+        .then(response => {
+          if(response.error){
+            console.log(response)
+          }
+          console.log(response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+   },[])
+
    return <>
            <Layout>
            {!addMember && <div style={styling.addMemberContainer}>

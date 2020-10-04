@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import MemberStyle from './style';
 import { useToast } from "@chakra-ui/core";
 import { getProjects } from '../../actions/project'
+
 const  styling = MemberStyle();
 
 const Project = () => {
