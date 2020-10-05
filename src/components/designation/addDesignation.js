@@ -40,8 +40,7 @@ const AddDesignation = ({ onClose }) => {
           })
    }
 
-   return <>
-           <div className="row justify-content-center">
+   return  <div className="row justify-content-center" style={styling.outerContainer}>
              <div className="col-md-5 card" style={styling.addDesignationCard}>
                  <h1 style={styling.title}>Add Designation</h1>
                  <form onSubmit={handleDesignation}>
@@ -57,7 +56,6 @@ const AddDesignation = ({ onClose }) => {
                  <Button variant="contained" color="secondary" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
               </div>
            </div>
-          </>
 }
 
 export default AddDesignation;

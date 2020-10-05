@@ -94,8 +94,7 @@ const handleDepartment = (x, y) => {
         setMember({...member, department: e})
 }
 
-  return <>
-           <div className="row justify-content-center">
+  return   <div className="row justify-content-center" style={styling.outerContainer}>
              <div className="col-md-6 card" style={styling.addMemberCard}>
                 <h1 style={styling.title}>Add Member</h1>
                  <form style={styling.addMemberForm}>
@@ -180,7 +179,6 @@ const handleDepartment = (x, y) => {
                   <Button variant="contained" color="secondary" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
              </div>
            </div>
-         </>
 }
 
 export default AddMember;

@@ -22,41 +22,38 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse'
 import {Link,withRouter} from 'react-router-dom';
 
-const drawerWidth = 0;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    // padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
+     display: 'flex',
+     alignItems: 'center',
+     padding: theme.spacing(0, 1),
+     // necessary for content to be below app bar
+     ...theme.mixins.toolbar,
+     justifyContent: 'flex-end',
+   },
+   appBar: {
+     marginBottom:"20px",
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   content: {
-    flexGrow: 1,
-    // padding: theme.spacing(3),
+    paddingTop: theme.spacing(2),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    // marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
   },
 }));
 
@@ -67,11 +64,11 @@ const useStyles = makeStyles((theme) => ({
   const [openWorkspaceCollapse, setOpenWorkspaceCollapse] = useState(false);
 
   const handleDrawerOpen = () => {
-    // setOpen(true);
+    setOpen(true);
   };
 
   const handleDrawerClose = () => {
-    // setOpen(false);
+    setOpen(false);
   };
 
  const isActive = (path) => {
@@ -88,7 +85,28 @@ const useStyles = makeStyles((theme) => ({
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+    <AppBar
+        color=""
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap>
+            Bytebruh Technologies
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -99,11 +117,11 @@ const useStyles = makeStyles((theme) => ({
         }}
       >
         <div className={classes.drawerHeader}>
-          {/*<IconButton onClick={handleDrawerClose}>
+          {<IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>*/}
+          </IconButton>}
         </div>
-
+       <Divider />
         <Link to="/profile">
           <List>
             <ListItem button style={isActive('/profile')}>
@@ -194,37 +212,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-       <ListItem button onClick={handleOpenWorkspace} >
-       <ListItemText primary="Work space" />
-       {openWorkspaceCollapse ? <ExpandLess  /> : <ExpandMore  />}
-      </ListItem>
-      <Collapse in={openWorkspaceCollapse} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-         <Link to="/workspace/article">
-          <ListItem button style={isActive('/workspace/article')}>
-            <ListItemText primary="All articles" />
-          </ListItem>
-         </Link>
-          <Link to="/workspace/article/write">
-           <ListItem button style={isActive('/workspace/article/write')}>
-            <ListItemText primary='Write article' />
-          </ListItem>
-          </Link>
 
-          <Link to="/workspace/article/categories">
-           <ListItem button style={isActive('/workspace/article/categories')}>
-            <ListItemText primary='Categories' />
-          </ListItem>
-          </Link>
-
-          <Link to="/workspace/article/tags">
-           <ListItem button style={isActive('/workspace/article/tags')}>
-            <ListItemText primary='Tags' />
-          </ListItem>
-          </Link>
-
-        </List>
-      </Collapse>
 
       <Link to="/logs">
         <List>
@@ -234,6 +222,37 @@ const useStyles = makeStyles((theme) => ({
         </List>
       </Link>
 
+      <ListItem button onClick={handleOpenWorkspace} >
+      <ListItemText primary="Work space" />
+      {openWorkspaceCollapse ? <ExpandLess  /> : <ExpandMore  />}
+      </ListItem>
+      <Collapse in={openWorkspaceCollapse} timeout="auto" unmountOnExit>
+       <List component="div" disablePadding>
+        <Link to="/workspace/article">
+         <ListItem button style={isActive('/workspace/article')}>
+           <ListItemText primary="All articles" />
+         </ListItem>
+        </Link>
+         <Link to="/workspace/article/write">
+          <ListItem button style={isActive('/workspace/article/write')}>
+           <ListItemText primary='Write article' />
+         </ListItem>
+         </Link>
+
+         <Link to="/workspace/article/categories">
+          <ListItem button style={isActive('/workspace/article/categories')}>
+           <ListItemText primary='Categories' />
+         </ListItem>
+         </Link>
+
+         <Link to="/workspace/article/tags">
+          <ListItem button style={isActive('/workspace/article/tags')}>
+           <ListItemText primary='Tags' />
+         </ListItem>
+         </Link>
+
+       </List>
+      </Collapse>
 
       </Drawer>
       <main

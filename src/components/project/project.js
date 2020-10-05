@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import MemberStyle from './style';
 import { useToast } from "@chakra-ui/core";
 import { getProjects } from '../../actions/project'
+import Card from './card';
 
 const  styling = MemberStyle();
 
@@ -40,14 +41,22 @@ const Project = () => {
       })
   },[])
 
-console.log(projects)
+
+  const showProjects = () => {
+        return projects && projects.map((item, i) => {
+          return <Card data={item} key={i}/>
+        })
+  }
 
   return <>
           <Layout>
-          {!addProject && <div style={styling.addProjectContainer}>
-               <Button variant="contained" style={styling.addProBtn} onClick={handleChange}>Add Project</Button>
-           </div>}
+          <div style={styling.addProjectContainer}>
+               {!addProject && <Button variant="contained" style={styling.addProBtn} onClick={handleChange}>Add Project</Button>}
+           </div>
           {addProject && <AddProject onClose={(status) => setAddProject(false)}/>}
+           <div className="row col justify-content-center">
+              {showProjects()}
+           </div>
           </Layout>
          </>
 }

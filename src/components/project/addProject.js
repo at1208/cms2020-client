@@ -83,9 +83,8 @@ const AddProject = ({ onClose }) => {
           setProject({...project, teamMember: e})
   }
 
-  return <>
-          <Layout>
-               <div className="row justify-content-center">
+
+  return       <div className="row justify-content-center" style={styling.outerContainer}>
                  <div className="col-md-6 card" style={styling.addProjectCard}>
                   <h1 style={styling.title}>Add Project</h1>
                   <form onSubmit={handleProject}>
@@ -155,8 +154,6 @@ const AddProject = ({ onClose }) => {
                     <Button variant="contained" color="secondary" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
                </div>
             </div>
-          </Layout>
-         </>
 }
 
 export default AddProject;

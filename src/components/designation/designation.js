@@ -72,9 +72,9 @@ const showDesignationTable = () => {
 
    return <>
              <Layout>
-              {!addDesignation && <div style={styling.addDesignationContainer}>
-              <Button variant="contained" style={styling.addDesBtn} onClick={handleChange}>Add Designation</Button>
-              </div>}
+              <div style={styling.addDesignationContainer}>
+              {!addDesignation && <Button variant="contained" style={styling.addDesBtn} onClick={handleChange}>Add Designation</Button>}
+              </div>
               {addDesignation && <AddDesignation onClose={(status) => setAddDesignation(false)} />}
                 <div className="row justify-content-center">
                  <div className="col-md-8 card" style={styling.designationTableCard}>

@@ -41,8 +41,7 @@ const AddDepartment = ({ onClose }) => {
           })
    }
 
-   return <>
-           <div className="row justify-content-center">
+   return  <div className="row justify-content-center" style={styling.outerContainer}>
              <div className="col-md-5 card" style={styling.addDepartmentCard}>
                  <h1 style={styling.title}>Add Department</h1>
                  <form onSubmit={handleDepartment}>
@@ -58,7 +57,6 @@ const AddDepartment = ({ onClose }) => {
                    <Button variant="contained" color="secondary"  size="small" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
               </div>
            </div>
-          </>
 }
 
 export default AddDepartment;

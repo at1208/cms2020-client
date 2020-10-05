@@ -70,9 +70,9 @@ const Department = () => {
 
    return <>
            <Layout>
-           {!addDepartment && <div style={styling.addDepartmentContainer}>
-           <Button variant="contained"  style={styling.addDepBtn} onClick={handleChange}>Add Department</Button>
-            </div>}
+           <div style={styling.addDepartmentContainer}>
+             {!addDepartment && <Button variant="contained"  style={styling.addDepBtn} onClick={handleChange}>Add Department</Button>}
+            </div>
            {addDepartment && <AddDepartment onClose={(status) => setAddDepartment(false)}/>}
            <div className="row justify-content-center">
              <div className="col-md-8 card" style={styling.departmentTableCard}>

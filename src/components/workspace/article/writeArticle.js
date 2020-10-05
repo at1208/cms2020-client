@@ -300,7 +300,7 @@ return
              <div style={styling.navigationContainer}>
                 {navigationHandle()}
              </div>
-             <div className="container">
+             <div className="container writeContainer">
 
              {!step1 && !step2 && !step3 && !step4 && !step5 && !step6 && !step7 && <div className="row justify-content-center">
                    <div className="col-md-5">
