@@ -4,9 +4,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import 'medium-editor/dist/css/themes/default.css';
+import 'medium-editor/dist/css/medium-editor.css';
 import "./globalStyle.css";
 import { ThemeProvider } from "@chakra-ui/core";
-
 import PrivateRoute from './components/protected/private';
 
 
@@ -24,6 +25,10 @@ import Profile from './components/profile/profile';
 import Contact from './components/contact/contact';
 import OfferLetter from './components/offerletter/offerletter';
 import Invitation from './components/invitation/invitation';
+import Group from './components/group/group';
+import GroupChat from './components/group/groupChat';
+ 
+
 
 
 
@@ -44,6 +49,8 @@ ReactDOM.render(<BrowserRouter>
                         <PrivateRoute path="/profile" component={Profile} exact/>
                         <PrivateRoute path="/department" component={Department} exact/>
                         <PrivateRoute path="/designation" component={Designation} exact/>
+                        <PrivateRoute path="/group" component={Group} exact/>
+                        <PrivateRoute path="/group/:groupname" component={GroupChat} exact/>
 
 
                    </ThemeProvider>

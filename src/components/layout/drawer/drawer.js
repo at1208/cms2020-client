@@ -23,7 +23,6 @@ import Collapse from '@material-ui/core/Collapse'
 import {Link,withRouter} from 'react-router-dom';
 
 const drawerWidth = 200;
-
 const useStyles = makeStyles((theme) => ({
   drawerHeader: {
      display: 'flex',
@@ -60,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
  function PersistentDrawerLeft({ data, match }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [openWorkspaceCollapse, setOpenWorkspaceCollapse] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -138,6 +137,15 @@ const useStyles = makeStyles((theme) => ({
           </List>
         </Link>
 
+        <Link to="/group">
+          <List>
+            <ListItem button style={isActive('/group')}>
+              <ListItemText primary="Group" />
+            </ListItem>
+          </List>
+        </Link>
+
+
         <Link to="/projects">
           <List>
             <ListItem button style={isActive('/projects')}>
@@ -170,15 +178,15 @@ const useStyles = makeStyles((theme) => ({
           </List>
         </Link>
 
-        <Link to="/contact">
+{ /*       <Link to="/contact">
           <List>
             <ListItem button style={isActive('/contact')}>
               <ListItemText primary="Contact" />
             </ListItem>
           </List>
-        </Link>
+        </Link>*/}
 
-        <Link to="/offerletter">
+  {/*      <Link to="/offerletter">
           <List>
             <ListItem button style={isActive('/offerletter')}>
               <ListItemText primary="Offer letter" />
@@ -192,9 +200,9 @@ const useStyles = makeStyles((theme) => ({
               <ListItemText primary="Holiday" />
             </ListItem>
           </List>
-        </Link>
+        </Link>*/}
 
-        <Link to="/leave">
+        {/*<Link to="/leave">
           <List>
             <ListItem button>
               <ListItemText primary="Leave" />
@@ -208,19 +216,19 @@ const useStyles = makeStyles((theme) => ({
               <ListItemText primary="Leave request" />
             </ListItem>
           </List>
-        </Link>
+        </Link>*/}
 
 
 
 
 
-      <Link to="/logs">
+      {/*<Link to="/logs">
         <List>
           <ListItem button style={isActive('/logs')}>
             <ListItemText primary="Logs" />
           </ListItem>
         </List>
-      </Link>
+      </Link>*/}
 
       <ListItem button onClick={handleOpenWorkspace} >
       <ListItemText primary="Work space" />

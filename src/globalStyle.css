@@ -91,3 +91,58 @@ padding: 8px;
    margin-left: 5px!important;
    margin-right: 5px!important;
  }
+ .col-md-8{
+   padding-left: 0px!important;
+   padding-right: 0px!important;
+ },
+ .col-3{
+   /* padding-left: 0px!important;
+   padding-right: 0px!important; */
+ }
+.chatContainer{
+  overflow: hidden;
+  /* background-color: lightpink; */
+  overflow-y: scroll;
+  height: 510px;
+  /* padding-left: 15px!important;
+  padding-right: 15px!important; */
+}
+@media (min-width:767px) and (max-width: 1100px){
+  .chatContainer{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 480px;
+  }
+}
+
+@media (min-width:1100px){
+  .chatContainer{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 500px;
+  }
+}
+
+.typeMsgContainer{
+  position: fixed;
+  bottom: 50px;
+  left:1%;
+  right:1%;
+}
+/* .typeMsgContainer{
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+} */
+/* @media (min-width: 767px) {
+  .typeMsgContainer{
+    position: fixed;
+    bottom: 60px; */
+    /* left: 210px;
+    right: 210px; */
+  /* }
+} */
+.sendIcon:hover{
+  color: #2196f3;
+}
