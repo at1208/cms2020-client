@@ -70,6 +70,7 @@ const showDesignationTable = () => {
        </Table>
 }
 
+console.log(designations)
    return <>
              <Layout>
               <div style={styling.addDesignationContainer}>

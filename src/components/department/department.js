@@ -68,6 +68,8 @@ const Department = () => {
          </Table>
   }
 
+console.log(departments)
+
    return <>
            <Layout>
            <div style={styling.addDepartmentContainer}>

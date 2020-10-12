@@ -125,7 +125,7 @@ padding: 8px;
 
 .typeMsgContainer{
   position: fixed;
-  bottom: 50px;
+  bottom: 10px;
   left:1%;
   right:1%;
 }
@@ -145,4 +145,13 @@ padding: 8px;
 } */
 .sendIcon:hover{
   color: #2196f3;
+}
+.messageSideBar{
+  /* font-size: 50px;
+  width: 300px;
+  background-color: white;
+  position: fixed;
+  right: 0px;
+  top: 9%;
+  height: 91% */
 }

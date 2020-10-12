@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+
 import { BrowserRouter, Route } from 'react-router-dom';
+import io from 'socket.io-client';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
@@ -9,6 +12,7 @@ import 'medium-editor/dist/css/medium-editor.css';
 import "./globalStyle.css";
 import { ThemeProvider } from "@chakra-ui/core";
 import PrivateRoute from './components/protected/private';
+
 
 
 import SignIn from './components/signin/signin';
@@ -27,6 +31,7 @@ import OfferLetter from './components/offerletter/offerletter';
 import Invitation from './components/invitation/invitation';
 import Group from './components/group/group';
 import GroupChat from './components/group/groupChat';
+import Message from './components/message/message';
  
 
 
@@ -51,6 +56,7 @@ ReactDOM.render(<BrowserRouter>
                         <PrivateRoute path="/designation" component={Designation} exact/>
                         <PrivateRoute path="/group" component={Group} exact/>
                         <PrivateRoute path="/group/:groupname" component={GroupChat} exact/>
+                        <PrivateRoute path="/message" component={Message} exact/>
 
 
                    </ThemeProvider>

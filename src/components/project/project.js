@@ -55,7 +55,7 @@ const Project = () => {
            </div>
           {addProject && <AddProject onClose={(status) => setAddProject(false)}/>}
            <div className="row col justify-content-center">
-              {showProjects()}
+
            </div>
           </Layout>
          </>

@@ -55,8 +55,8 @@ const Invitation  = ({ match }) => {
        }
 
         history.push('/')
-        toaster(response.message,"", "success")
-        return localStorage.setItem("email", JSON.stringify(email));
+        return toaster(response.message,"", "success")
+        // return localStorage.setItem("email", JSON.stringify(email));
      })
      .catch((err) => {
        return toaster("Something went wrong!", "Please try after sometime", "error")

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { useHistory } from 'react-router-dom';
-import { signin, authenticate } from '../../actions/auth';
+import { signin, authenticate, isAuth } from '../../actions/auth';
 import { useToast } from "@chakra-ui/core";
 import SignInStyle from './style';
 const  styling = SignInStyle();
@@ -35,6 +35,12 @@ const SignIn = () => {
 
   useEffect(() => {
    return setCredentials({...credentials, email: emailFromLS()})
+ },[])
+
+ useEffect(() => {
+   if(isAuth()){
+     return history.push('/profile')
+   }
  },[])
 
 

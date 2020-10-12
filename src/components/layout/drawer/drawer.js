@@ -21,6 +21,9 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse'
 import {Link,withRouter} from 'react-router-dom';
+import { signout } from '../../../actions/auth';
+import { useHistory } from 'react-router-dom';
+
 
 const drawerWidth = 200;
 const useStyles = makeStyles((theme) => ({
@@ -56,10 +59,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function PersistentDrawerLeft({ data, match }) {
+const Sidebar = ({ data, match }) => {
+  const history = useHistory();
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [openWorkspaceCollapse, setOpenWorkspaceCollapse] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -102,9 +106,11 @@ const useStyles = makeStyles((theme) => ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Bytebruh Technologies
+
           </Typography>
+
         </Toolbar>
+
       </AppBar>
       <Drawer
         className={classes.drawer}
@@ -121,29 +127,29 @@ const useStyles = makeStyles((theme) => ({
           </IconButton>}
         </div>
        <Divider />
-        <Link to="/profile">
+        {/*<Link to="/profile">
           <List>
             <ListItem button style={isActive('/profile')}>
               <ListItemText primary="Profile" />
             </ListItem>
           </List>
-        </Link>
+        </Link>*/}
 
-        <Link to="/dashboard">
-          <List>
-            <ListItem button style={isActive('/dashboard')}>
-              <ListItemText primary="Dashboard" />
-            </ListItem>
-          </List>
-        </Link>
+      {/*<Link to="/dashboard">
+        <List>
+          <ListItem button style={isActive('/dashboard')}>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+        </List>
+      </Link>*/}
 
-        <Link to="/group">
+        {/*<Link to="/group">
           <List>
             <ListItem button style={isActive('/group')}>
               <ListItemText primary="Group" />
             </ListItem>
           </List>
-        </Link>
+        </Link>*/}
 
 
         <Link to="/projects">
@@ -162,7 +168,15 @@ const useStyles = makeStyles((theme) => ({
           </List>
         </Link>
 
-        <Link to="/department">
+        <Link to="/message">
+          <List>
+            <ListItem button style={isActive('/message')}>
+              <ListItemText primary="Message" />
+            </ListItem>
+          </List>
+        </Link>
+
+    {/*    <Link to="/department">
           <List>
             <ListItem button style={isActive('/department')}>
               <ListItemText primary="Department" />
@@ -176,7 +190,7 @@ const useStyles = makeStyles((theme) => ({
               <ListItemText primary="Designation" />
             </ListItem>
           </List>
-        </Link>
+        </Link>*/}
 
 { /*       <Link to="/contact">
           <List>
@@ -230,7 +244,7 @@ const useStyles = makeStyles((theme) => ({
         </List>
       </Link>*/}
 
-      <ListItem button onClick={handleOpenWorkspace} >
+    {/*  <ListItem button onClick={handleOpenWorkspace} >
       <ListItemText primary="Work space" />
       {openWorkspaceCollapse ? <ExpandLess  /> : <ExpandMore  />}
       </ListItem>
@@ -260,7 +274,14 @@ const useStyles = makeStyles((theme) => ({
          </Link>
 
        </List>
-      </Collapse>
+      </Collapse>*/}
+
+      <List>
+        <ListItem button onClick={() => signout(() => history.push('/'))}>
+          <ListItemText primary="Sign out" />
+        </ListItem>
+      </List>
+
 
       </Drawer>
       <main
@@ -275,4 +296,4 @@ const useStyles = makeStyles((theme) => ({
   );
 }
 
-export default withRouter(PersistentDrawerLeft)
+export default withRouter(Sidebar)
