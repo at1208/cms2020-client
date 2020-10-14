@@ -10,7 +10,7 @@ import 'medium-editor/dist/css/themes/default.css';
 import 'medium-editor/dist/css/medium-editor.css';
 import 'line-awesome/dist/font-awesome-line-awesome/css/all.min.css';
 import 'line-awesome/dist/line-awesome/css/line-awesome.min.css';
-import 'antd/dist/antd.css'; 
+import 'antd/dist/antd.css';
 import "./globalStyle.css";
 import { ThemeProvider } from "@chakra-ui/core";
 import PrivateRoute from './components/protected/private';
@@ -19,7 +19,7 @@ import PrivateRoute from './components/protected/private';
 
 import SignIn from './components/signin/signin';
 import Dashboard from './components/dashboard/dashboard'
-import Projects from './components/project/project';
+import Products from './components/product/product';
 import Members from './components/member/member';
 import Department from './components/department/department';
 import Designation from './components/designation/designation';
@@ -53,7 +53,7 @@ ReactDOM.render(<BrowserRouter>
                         <PrivateRoute path="/contact" component={Contact} exact/>
                         <PrivateRoute path="/offerletter" component={OfferLetter} exact/>
                         <PrivateRoute path="/member" component={Members} exact/>
-                        <PrivateRoute path="/projects" component={Projects} exact/>
+                        <PrivateRoute path="/Products" component={Products} exact/>
                         <PrivateRoute path="/profile" component={Profile} exact/>
                         <PrivateRoute path="/department" component={Department} exact/>
                         <PrivateRoute path="/designation" component={Designation} exact/>

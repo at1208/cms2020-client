@@ -213,7 +213,7 @@ const isActive = (path) => {
 
 
 
-        <Link to="/projects">
+        <Link to="/products">
           <ListItem button key={1}>
             <ListItemIcon><i className="la la-rocket sb-icons"></i></ListItemIcon>
             <ListItemText primary="Products" />
