@@ -25,18 +25,15 @@ import { signout } from '../../../actions/auth';
 import { useHistory } from 'react-router-dom';
 
 
+
 const drawerWidth = 200;
+
+
 const useStyles = makeStyles((theme) => ({
-  drawerHeader: {
-     display: 'flex',
-     alignItems: 'center',
-     padding: theme.spacing(0, 1),
-     // necessary for content to be below app bar
-     ...theme.mixins.toolbar,
-     justifyContent: 'flex-end',
-   },
-   appBar: {
-     marginBottom:"20px",
+  root: {
+    display: 'flex',
+  },
+  appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -50,14 +47,83 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  hide: {
+    display: 'none',
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end',
+  },
   content: {
-    paddingTop: theme.spacing(2),
+    flexGrow: 1,
+    padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    marginLeft: -drawerWidth,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
   },
 }));
+
+
+
+
+
+//
+//
+// const useStyles = makeStyles((theme) => ({
+//   drawerHeader: {
+//      display: 'flex',
+//      alignItems: 'center',
+//      padding: theme.spacing(0, 1),
+//      // necessary for content to be below app bar
+//      ...theme.mixins.toolbar,
+//      justifyContent: 'flex-end',
+//    },
+//    appBar: {
+//      marginBottom:"20px",
+//     transition: theme.transitions.create(['margin', 'width'], {
+//       easing: theme.transitions.easing.sharp,
+//       duration: theme.transitions.duration.leavingScreen,
+//     }),
+//   },
+//   appBarShift: {
+//     width: `calc(100% - ${drawerWidth}px)`,
+//     marginLeft: drawerWidth,
+//     transition: theme.transitions.create(['margin', 'width'], {
+//       easing: theme.transitions.easing.easeOut,
+//       duration: theme.transitions.duration.enteringScreen,
+//     }),
+//   },
+//   content: {
+//     paddingTop: theme.spacing(2),
+//     transition: theme.transitions.create('margin', {
+//       easing: theme.transitions.easing.sharp,
+//       duration: theme.transitions.duration.leavingScreen,
+//     }),
+//   },
+// }));
 
 const Sidebar = ({ data, match }) => {
   const history = useHistory();
@@ -127,29 +193,37 @@ const Sidebar = ({ data, match }) => {
           </IconButton>}
         </div>
        <Divider />
-        {/*<Link to="/profile">
+        <Link to="/profile">
           <List>
             <ListItem button style={isActive('/profile')}>
               <ListItemText primary="Profile" />
             </ListItem>
           </List>
-        </Link>*/}
+        </Link>
 
-      {/*<Link to="/dashboard">
+      <Link to="/dashboard">
         <List>
           <ListItem button style={isActive('/dashboard')}>
             <ListItemText primary="Dashboard" />
           </ListItem>
         </List>
-      </Link>*/}
+      </Link>
 
-        {/*<Link to="/group">
+      <Link to="/task">
+        <List>
+          <ListItem button style={isActive('/task')}>
+            <ListItemText primary="Task" />
+          </ListItem>
+        </List>
+      </Link>
+
+        <Link to="/team">
           <List>
-            <ListItem button style={isActive('/group')}>
-              <ListItemText primary="Group" />
+            <ListItem button style={isActive('/team')}>
+              <ListItemText primary="Team" />
             </ListItem>
           </List>
-        </Link>*/}
+        </Link>
 
 
         <Link to="/projects">
@@ -176,7 +250,7 @@ const Sidebar = ({ data, match }) => {
           </List>
         </Link>
 
-    {/*    <Link to="/department">
+       <Link to="/department">
           <List>
             <ListItem button style={isActive('/department')}>
               <ListItemText primary="Department" />
@@ -190,17 +264,17 @@ const Sidebar = ({ data, match }) => {
               <ListItemText primary="Designation" />
             </ListItem>
           </List>
-        </Link>*/}
+        </Link>
 
-{ /*       <Link to="/contact">
+      <Link to="/contact">
           <List>
             <ListItem button style={isActive('/contact')}>
               <ListItemText primary="Contact" />
             </ListItem>
           </List>
-        </Link>*/}
+        </Link>
 
-  {/*      <Link to="/offerletter">
+        <Link to="/offerletter">
           <List>
             <ListItem button style={isActive('/offerletter')}>
               <ListItemText primary="Offer letter" />
@@ -208,43 +282,18 @@ const Sidebar = ({ data, match }) => {
           </List>
         </Link>
 
-      <Link to="/holiday">
-          <List>
-            <ListItem button>
-              <ListItemText primary="Holiday" />
-            </ListItem>
-          </List>
-        </Link>*/}
-
-        {/*<Link to="/leave">
-          <List>
-            <ListItem button>
-              <ListItemText primary="Leave" />
-            </ListItem>
-          </List>
-        </Link>
-
-        <Link to="/leaverequest">
-          <List>
-            <ListItem button>
-              <ListItemText primary="Leave request" />
-            </ListItem>
-          </List>
-        </Link>*/}
 
 
-
-
-
-      {/*<Link to="/logs">
+      <Link to="/logs">
         <List>
           <ListItem button style={isActive('/logs')}>
             <ListItemText primary="Logs" />
           </ListItem>
         </List>
-      </Link>*/}
+      </Link>
 
-    {/*  <ListItem button onClick={handleOpenWorkspace} >
+
+    <ListItem button onClick={handleOpenWorkspace} >
       <ListItemText primary="Work space" />
       {openWorkspaceCollapse ? <ExpandLess  /> : <ExpandMore  />}
       </ListItem>
@@ -257,7 +306,7 @@ const Sidebar = ({ data, match }) => {
         </Link>
          <Link to="/workspace/article/write">
           <ListItem button style={isActive('/workspace/article/write')}>
-           <ListItemText primary='Write article' />
+           <ListItemText primary='Write' />
          </ListItem>
          </Link>
 
@@ -274,7 +323,7 @@ const Sidebar = ({ data, match }) => {
          </Link>
 
        </List>
-      </Collapse>*/}
+      </Collapse>
 
       <List>
         <ListItem button onClick={() => signout(() => history.push('/'))}>

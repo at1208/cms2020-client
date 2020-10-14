@@ -42,6 +42,10 @@
   background-color: white!important;
   width: 200px!important;
 }
+.MuiDrawer-paperAnchorLeft::-webkit-scrollbar{
+   display: none;
+}
+
 .MuiListItem-gutters {
     padding-left: 31px!important;
 }
@@ -88,8 +92,8 @@ padding: 8px;
   padding-right: 5px!important;
 }
  .row{
-   margin-left: 5px!important;
-   margin-right: 5px!important;
+   margin-left: 0px!important;
+   margin-right: 0px!important;
  }
  .col-md-8{
    padding-left: 0px!important;
@@ -147,11 +151,44 @@ padding: 8px;
   color: #2196f3;
 }
 .messageSideBar{
-  /* font-size: 50px;
-  width: 300px;
+  min-width: 200px;
   background-color: white;
   position: fixed;
   right: 0px;
   top: 9%;
-  height: 91% */
+  height: 91%
+}
+.member-list{
+  /* text-align: center;
+  width: 250px;
+  background-color: white;
+  position: fixed;
+  right: 0px;
+  top: 9%;
+  height: 91%; */
+}
+.message-container{
+  position: fixed;
+  bottom: 2%;
+  left: 25%;
+  right: 25%;
+}
+.messageImg{
+  position: absolute;
+  left: 0px;
+  top:0px;
+}
+.messageContent{
+ margin-left: 58px;
+}
+.chatList{
+  position: absolute;
+  height: 70%;
+  overflow-y: scroll;
+  top:100px;
+  left: 25%;
+  right: 25%;
+}
+.offerletter{
+
 }

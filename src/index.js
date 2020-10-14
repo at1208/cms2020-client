@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 
 import { BrowserRouter, Route } from 'react-router-dom';
-import io from 'socket.io-client';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
@@ -29,10 +28,11 @@ import Profile from './components/profile/profile';
 import Contact from './components/contact/contact';
 import OfferLetter from './components/offerletter/offerletter';
 import Invitation from './components/invitation/invitation';
-import Group from './components/group/group';
+import Team from './components/team/team';
 import GroupChat from './components/group/groupChat';
 import Message from './components/message/message';
- 
+import PrivateChat from './components/message/privateChat';
+import Task from './components/task/task';
 
 
 
@@ -54,9 +54,11 @@ ReactDOM.render(<BrowserRouter>
                         <PrivateRoute path="/profile" component={Profile} exact/>
                         <PrivateRoute path="/department" component={Department} exact/>
                         <PrivateRoute path="/designation" component={Designation} exact/>
-                        <PrivateRoute path="/group" component={Group} exact/>
-                        <PrivateRoute path="/group/:groupname" component={GroupChat} exact/>
+                        <PrivateRoute path="/team" component={Team} exact/>
+                        <PrivateRoute path="/team/:room" component={GroupChat} exact/>
                         <PrivateRoute path="/message" component={Message} exact/>
+                        <PrivateRoute path="/task" component={Task} exact/>
+                        <PrivateRoute path="/message/:room" component={PrivateChat} exact/>
 
 
                    </ThemeProvider>

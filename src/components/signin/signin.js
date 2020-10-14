@@ -4,8 +4,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { useHistory } from 'react-router-dom';
 import { signin, authenticate, isAuth } from '../../actions/auth';
 import { useToast } from "@chakra-ui/core";
-import SignInStyle from './style';
-const  styling = SignInStyle();
+import Style from './style';
+const  styling = Style();
+
 
 
 const SignIn = () => {
