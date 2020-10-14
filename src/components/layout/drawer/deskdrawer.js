@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    // padding: theme.spacing(3),
   },
 }));
 
@@ -91,7 +91,7 @@ const Sidebar = ({ data, match }) => {
   const theme = useTheme();
   const [openWorkspaceCollapse, setOpenWorkspaceCollapse] = useState(false);
   const [openEmployeesCollapse, setOpenEmployeesCollapse] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -111,7 +111,7 @@ const Sidebar = ({ data, match }) => {
 
 const isActive = (path) => {
   if(match.path === path){
-    return { background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)', color:"white"}
+    return { background: '', color:""}
   }
 }
   return (

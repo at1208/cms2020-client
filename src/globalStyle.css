@@ -195,3 +195,14 @@ padding: 8px;
 .collapseContainer{
   /* background-color: #f1f1f1; */
 }
+.search-input{
+  border-radius: 25px!important;
+  /* background-color:  #f3f7f9!important; */
+}
+.filterBtn{
+  background-color: white!important;
+    box-shadow: white 0px 0.4rem 0rem;
+}
+/* .ant-input{
+  background-color: #f3f7f9!important;
+} */
