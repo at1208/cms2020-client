@@ -37,38 +37,35 @@
 .MuiAutocomplete-inputRoot{
     background-color: white!important;
 }
-.MuiDrawer-paperAnchorLeft{
-  /* background: linear-gradient(45deg, #da5b6c 30%, #404692 90%)!important; */
+.MuiAppBar-root{
   background-color: white!important;
-  width: 200px!important;
 }
-.MuiDrawer-paperAnchorLeft::-webkit-scrollbar{
-   display: none;
+.MuiIconButton-root{
+  color: black!important;
+}
+.MuiPaper-root{
+  box-shadow: #E9ECEE 0px 0.1rem .3rem!important;
+
+}
+.MuiListItemIcon-root{
+  min-width: 40px!important;
 }
 
-.MuiListItem-gutters {
-    padding-left: 31px!important;
-}
-.MuiList-padding {
-    padding-top: 2px!important;
-    padding-bottom: 2px!important;
-}
 .MuiListItem-root {
   box-shadow: #E9ECEE 0px 0.1rem .3rem;
-  margin-top: 1px!important;
-  margin-bottom: 1px!important;
- padding-top:5px!important;
- padding-bottom:5px!important;
+  margin-bottom: 2px!important;
+
 }
 body{
-  background-color: #eff3f6;
+  background-color: #eff3f6!important;
 }
 a{
   color: black;
   text-decoration: none!important;
 }
 .MuiTypography-root{
-  font-weight: 800!important;
+ font-size: 15px!important;
+ color: #333!important;
 }
 .MuiOutlinedInput-multiline{
   background: white;
@@ -191,4 +188,10 @@ padding: 8px;
 }
 .offerletter{
 
+}
+.sb-icons{
+  font-size: 27px;
+}
+.collapseContainer{
+  /* background-color: #f1f1f1; */
 }

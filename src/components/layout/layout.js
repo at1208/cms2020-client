@@ -1,9 +1,10 @@
 import React from 'react';
 import Drawer from './drawer/drawer'
+import DeskDrawer from './drawer/deskdrawer'
 
 const Layout = ({ children }) => {
   return <>
-           <Drawer data={children} />
+           <DeskDrawer data={children} />
          </>
 }
 

@@ -8,6 +8,8 @@ import '../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import 'medium-editor/dist/css/themes/default.css';
 import 'medium-editor/dist/css/medium-editor.css';
+import 'line-awesome/dist/font-awesome-line-awesome/css/all.min.css';
+import 'line-awesome/dist/line-awesome/css/line-awesome.min.css';
 import "./globalStyle.css";
 import { ThemeProvider } from "@chakra-ui/core";
 import PrivateRoute from './components/protected/private';
