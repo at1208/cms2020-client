@@ -32,7 +32,7 @@ import Contact from './components/contact/contact';
 import OfferLetter from './components/offerletter/offerletter';
 import Invitation from './components/invitation/invitation';
 import Team from './components/team/team';
-import GroupChat from './components/group/groupChat';
+// import GroupChat from './components/group/groupChat';
 import Message from './components/message/message';
 import PrivateChat from './components/message/privateChat';
 import Task from './components/task/task';
@@ -58,7 +58,7 @@ ReactDOM.render(<BrowserRouter>
                         <PrivateRoute path="/department" component={Department} exact/>
                         <PrivateRoute path="/designation" component={Designation} exact/>
                         <PrivateRoute path="/team" component={Team} exact/>
-                        <PrivateRoute path="/team/:room" component={GroupChat} exact/>
+                        {/*<PrivateRoute path="/team/:room" component={GroupChat} exact/>*/}
                         <PrivateRoute path="/message" component={Message} exact/>
                         <PrivateRoute path="/task" component={Task} exact/>
                         <PrivateRoute path="/message/:room" component={PrivateChat} exact/>
