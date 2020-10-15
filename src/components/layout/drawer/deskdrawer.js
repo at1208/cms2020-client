@@ -117,18 +117,7 @@ const useStyles = makeStyles((theme) => ({
       width: '20ch',
     },
   },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
+
 }));
 
 const Sidebar = ({ data, match }) => {
@@ -182,7 +171,7 @@ const isActive = (path) => {
             <MenuIcon />
           </IconButton>
           <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
+          <div>
           <IconButton aria-label="show 4 new mails" color="inherit">
                         <Badge badgeContent={4} color="secondary">
                           <MessageOutlinedIcon />
@@ -204,17 +193,7 @@ const isActive = (path) => {
                         <AccountCircle />
                       </IconButton>
                     </div>
-                    <div className={classes.sectionMobile}>
-                      <IconButton
-                        aria-label="show more"
-                        // aria-controls={mobileMenuId}
-                        aria-haspopup="true"
-                        // onClick={handleMobileMenuOpen}
-                        color="inherit"
-                      >
-                        <MoreIcon />
-                      </IconButton>
-                    </div>
+
 
         </Toolbar>
       </AppBar>
