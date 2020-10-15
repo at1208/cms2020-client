@@ -167,18 +167,18 @@ const isActive = (path) => {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon className="appIcons"/>
           </IconButton>
           <div className={classes.grow} />
           <div  >
           <IconButton aria-label="show 4 new mails" color="inherit">
                         <Badge badgeContent={4} color="secondary">
-                          <MessageOutlinedIcon />
+                          <MessageOutlinedIcon className="appIcons"/>
                         </Badge>
                       </IconButton>
                       <IconButton aria-label="show 17 new notifications" color="inherit">
                         <Badge badgeContent={3} color="secondary">
-                          <NotificationsOutlinedIcon />
+                          <NotificationsOutlinedIcon className="appIcons"/>
                         </Badge>
                       </IconButton>
                       <IconButton
@@ -189,7 +189,7 @@ const isActive = (path) => {
                         // onClick={handleProfileMenuOpen}
                         color="inherit"
                       >
-                        <AccountCircle />
+                        <AccountCircle className="appIcons"/>
                       </IconButton>
                     </div>
 

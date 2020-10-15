@@ -19,6 +19,7 @@ const SignInStyle = () => {
            },
            searchbtn:{
              height:"49px",
+             marginBottom:"10px",
              color:"white",
              fontSize:"15px",
              backgroundColor:"#1d39c4"
@@ -40,6 +41,12 @@ const SignInStyle = () => {
            },
            createBtn:{
              marginTop:"20px"
+           },
+           cardContainer:{
+             maxWidth:"300px",
+             backgroundColor:"white",
+             padding:"20px",
+             margin:"5px"
            }
          }
 }

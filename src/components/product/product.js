@@ -7,7 +7,7 @@ import { useToast } from "@chakra-ui/core";
 import TextField from '@material-ui/core/TextField';
 // import { getProjects } from '../../actions/project'
 import Fade from 'react-reveal/Fade';
-import Card from './card';
+import Card from './productCard';
 
 const  styling = MemberStyle();
 
@@ -85,6 +85,9 @@ const searchPdt = () => {
                     {searchPdt()}
                  </div>
              </div>}
+            <div className="row col justify-content-center">
+             <Card />
+            </div>
           </Layout>
          </>
 }

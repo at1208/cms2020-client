@@ -168,21 +168,22 @@ const isActive = (path) => {
               // [classes.hide]: open,
             })}
           >
-            <MenuIcon />
+            <MenuIcon className="appIcons"/>
           </IconButton>
           <div className={classes.grow} />
           <div>
           <IconButton aria-label="show 4 new mails" color="inherit">
                         <Badge badgeContent={4} color="secondary">
-                          <MessageOutlinedIcon />
+                          <MessageOutlinedIcon className="appIcons"/>
                         </Badge>
                       </IconButton>
                       <IconButton aria-label="show 17 new notifications" color="inherit">
                         <Badge badgeContent={3} color="secondary">
-                          <NotificationsOutlinedIcon />
+                          <NotificationsOutlinedIcon className="appIcons"/>
                         </Badge>
                       </IconButton>
                       <IconButton
+                      size="medium"
                         edge="end"
                         aria-label="account of current user"
                         // aria-controls={menuId}
@@ -190,7 +191,7 @@ const isActive = (path) => {
                         // onClick={handleProfileMenuOpen}
                         color="inherit"
                       >
-                        <AccountCircle />
+                        <AccountCircle className="appIcons"/>
                       </IconButton>
                     </div>
 
