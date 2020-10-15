@@ -83,7 +83,7 @@ const searchPdt = () => {
                label="Employee Name"
              />
              </div>
-             <div className="col-md-4">
+             <div className="col-md-4 pt-2">
               <Button variant="contained" style={styling.field} fullWidth style={styling.searchbtn}>
                 Search
               </Button>

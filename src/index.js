@@ -20,7 +20,7 @@ import PrivateRoute from './components/protected/private';
 import SignIn from './components/signin/signin';
 import Dashboard from './components/dashboard/dashboard'
 import Products from './components/product/product';
-import Members from './components/member/member';
+import Employees from './components/employee/employee';
 import Department from './components/department/department';
 import Designation from './components/designation/designation';
 import Workspace from './components/workspace/article/article';
@@ -52,7 +52,7 @@ ReactDOM.render(<BrowserRouter>
                         <PrivateRoute path="/workspace/article/tags" component={Tags} exact/>
                         <PrivateRoute path="/contact" component={Contact} exact/>
                         <PrivateRoute path="/offerletter" component={OfferLetter} exact/>
-                        <PrivateRoute path="/member" component={Members} exact/>
+                        <PrivateRoute path="/Employees" component={Employees} exact/>
                         <PrivateRoute path="/Products" component={Products} exact/>
                         <PrivateRoute path="/profile" component={Profile} exact/>
                         <PrivateRoute path="/department" component={Department} exact/>
