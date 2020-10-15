@@ -234,8 +234,8 @@ const isActive = (path) => {
               <Collapse in={openEmployeesCollapse} timeout="auto" unmountOnExit>
                 <div className="collapseContainer">
                    <List component="div" disablePadding>
-                      <Link to="/employees">
-                      <ListItem button style={isActive('/employees')}>
+                      <Link to="/all-employees">
+                      <ListItem button style={isActive('/all-employees')}>
                       <ListItemIcon></ListItemIcon>
                       <ListItemText primary="All Employees" />
                       </ListItem>
@@ -252,13 +252,13 @@ const isActive = (path) => {
                       <ListItemText primary='Leave Request' />
                       </ListItem>
                       </Link>
-                      <Link to="">
+                      <Link to="/departments">
                       <ListItem button style={isActive('')}>
                       <ListItemIcon></ListItemIcon>
                       <ListItemText primary='Department' />
                       </ListItem>
                       </Link>
-                      <Link to="">
+                      <Link to="/designations">
                       <ListItem button style={isActive('')}>
                       <ListItemIcon></ListItemIcon>
                       <ListItemText primary='Designation' />

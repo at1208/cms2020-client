@@ -7,9 +7,11 @@ const SignInStyle = () => {
              borderRadius:"20px"
            },
            plusIcon:{
+
            },
            title:{
-             fontSize:"21px",
+             fontSize:"25px",
+             padding:"30px",
              fontWeight:"normal"
            },
            pdtHeader:{
@@ -24,6 +26,20 @@ const SignInStyle = () => {
            field:{
              marginTop:"5px",
              marginBottom:"5px"
+           },
+           outerContainer:{
+
+           },
+           closeBtn:{
+             position:"absolute",
+             right:"20px",
+             top:"30px"
+           },
+           addProductCard:{
+             padding:"10px 5px 10px 5px"
+           },
+           createBtn:{
+             marginTop:"20px"
            }
          }
 }

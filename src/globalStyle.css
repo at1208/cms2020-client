@@ -91,11 +91,17 @@ padding: 8px;
  .row{
    margin-left: 0px!important;
    margin-right: 0px!important;
+   padding-left: 0px!important;
+   padding-right: 0px!important;
  }
  .col-md-8{
    padding-left: 0px!important;
    padding-right: 0px!important;
  },
+ .col-md-6{
+   padding-left: 0px!important;
+   padding-right: 0px!important;
+ }
  .col-3{
    /* padding-left: 0px!important;
    padding-right: 0px!important; */

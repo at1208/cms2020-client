@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../layout/layout';
-import AddProject from './addProject';
+import AddProduct from './addProduct';
 import Button from '@material-ui/core/Button';
 import MemberStyle from './style';
 import { useToast } from "@chakra-ui/core";
 import TextField from '@material-ui/core/TextField';
-import { getProjects } from '../../actions/project'
+// import { getProjects } from '../../actions/project'
+import Fade from 'react-reveal/Fade';
 import Card from './card';
 
 const  styling = MemberStyle();
 
 const Project = () => {
   const toast = useToast();
-  const [addProject, setAddProject] = useState(false);
-  const [projects, setProject] = useState();
+  const [open, setOpen] = useState(false);
+
 
   const toaster = (title, description, status) => {
         return toast({
@@ -26,28 +27,10 @@ const Project = () => {
         })
   }
   const handleChange = () => {
-     setAddProject(true)
+     setOpen(true)
   }
 
-  useEffect(() => {
-    // getProjects()
-    //   .then(response => {
-    //     if(response.error){
-    //       return console.log(response.error)
-    //     }
-    //     setProject(response.result)
-    //   })
-    //   .catch((err) => {
-    //      return toaster("Something went wrong!", "Please try after sometime", "error")
-    //   })
-  },[])
 
-
-  // const showProjects = () => {
-  //       return projects && projects.map((item, i) => {
-  //         return <Card data={item} key={i}/>
-  //       })
-  // }
 
 const productHeader = () => {
   return <div className="row col" style={styling.pdtHeader}>
@@ -56,7 +39,7 @@ const productHeader = () => {
             </div>
             <div className="col-md-4">
                <div className="row justify-content-end">
-                 <Button variant="contained" style={styling.createPdt}>
+                 <Button variant="contained" style={styling.createPdt} onClick={handleChange}>
                    <i className="la la-plus" style={styling.plusIcon}/>
                    Create Product
                  </Button>
@@ -93,12 +76,15 @@ const searchPdt = () => {
 
   return <>
           <Layout>
-             <div>
-               {productHeader()}
-             </div>
-             <div>
-                {searchPdt()}
-             </div>
+             {open &&  <Fade top><AddProduct onClose={() => setOpen(false)}/></Fade>}
+             {!open && <div>
+                 <div>
+                   {productHeader()}
+                 </div>
+                 <div>
+                    {searchPdt()}
+                 </div>
+             </div>}
           </Layout>
          </>
 }

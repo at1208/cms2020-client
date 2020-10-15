@@ -52,11 +52,11 @@ ReactDOM.render(<BrowserRouter>
                         <PrivateRoute path="/workspace/article/tags" component={Tags} exact/>
                         <PrivateRoute path="/contact" component={Contact} exact/>
                         <PrivateRoute path="/offerletter" component={OfferLetter} exact/>
-                        <PrivateRoute path="/Employees" component={Employees} exact/>
+                        <PrivateRoute path="/all-employees" component={Employees} exact/>
                         <PrivateRoute path="/Products" component={Products} exact/>
                         <PrivateRoute path="/profile" component={Profile} exact/>
-                        <PrivateRoute path="/department" component={Department} exact/>
-                        <PrivateRoute path="/designation" component={Designation} exact/>
+                        <PrivateRoute path="/departments" component={Department} exact/>
+                        <PrivateRoute path="/designations" component={Designation} exact/>
                         <PrivateRoute path="/team" component={Team} exact/>
                         {/*<PrivateRoute path="/team/:room" component={GroupChat} exact/>*/}
                         <PrivateRoute path="/message" component={Message} exact/>
