@@ -272,10 +272,12 @@ const isActive = (path) => {
           </ListItem>
         </Link>
 
+         <Link to="/task">
           <ListItem button key={1}>
             <ListItemIcon><i className="la la-tasks sb-icons"></i></ListItemIcon>
             <ListItemText primary="Tasks" />
           </ListItem>
+         </Link>
 
          <Link to="/contact">
           <ListItem button key={1}>

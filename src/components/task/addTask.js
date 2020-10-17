@@ -89,7 +89,7 @@ const AddProject = ({ onClose }) => {
 
   return       <div className="row justify-content-center" style={styling.outerContainer}>
                  <div className="col-md-12" style={styling.addProductCard}>
-                  <h1 style={styling.title}>Add Contact</h1>
+                  <h1 style={styling.title}>Add Task</h1>
                   <form onSubmit={handleProject} className="text-center">
 
                   <div className="row col justify-content-center">
@@ -174,7 +174,7 @@ const AddProject = ({ onClose }) => {
                       />
                       </div>
                   </div>
-                      <Button variant="contained" color="primary" size="large" style={styling.createBtn}  onClick={handleProject}>Add Contact</Button>
+                      <Button variant="contained" color="primary" size="large" style={styling.createBtn}  onClick={handleProject}>Add Task</Button>
                   </form>
                     <IconButton aria-label="close" style={styling.closeBtn} onClick={() => onClose(false)}>
                        <CancelIcon color="secondary" fontSize="large"/>

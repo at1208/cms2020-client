@@ -9,7 +9,8 @@ const SignInStyle = () => {
            plusIcon:{
            },
            title:{
-             fontSize:"21px",
+             fontSize:"25px",
+             padding:"30px",
              fontWeight:"normal"
            },
            empHeader:{

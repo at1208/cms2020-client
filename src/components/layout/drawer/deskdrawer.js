@@ -146,7 +146,7 @@ const Sidebar = ({ data, match }) => {
 
 const isActive = (path) => {
   if(match.path === path){
-    return { background: '', color:""}
+    return { backgroundColor: '#e0e0e0', color:""}
   }
 }
   return (
@@ -278,10 +278,12 @@ const isActive = (path) => {
           </ListItem>
         </Link>
 
-          <ListItem button key={1}>
+         <Link to="/task">
+          <ListItem button key={1} style={isActive('/task')}>
             <ListItemIcon><i className="la la-tasks sb-icons"></i></ListItemIcon>
             <ListItemText primary="Tasks" />
           </ListItem>
+         </Link>
 
          <Link to="/contact">
           <ListItem button key={1}>
