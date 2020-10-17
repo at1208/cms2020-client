@@ -10,6 +10,8 @@ import { useToast } from "@chakra-ui/core";
 import { getDepartments } from '../../actions/department'
 import { getDesignations } from '../../actions/designation'
 import { inviteonBoard } from '../../actions/auth';
+import CancelIcon from '@material-ui/icons/Cancel';
+import IconButton from '@material-ui/core/IconButton';
 import MemberStyle from './style';
 const  styling = MemberStyle();
 
@@ -95,9 +97,12 @@ const handleDepartment = (x, y) => {
 }
 
   return   <div className="row justify-content-center" style={styling.outerContainer}>
-             <div className="col-md-6 card" style={styling.addMemberCard}>
-                <h1 style={styling.title}>Add Member</h1>
-                 <form style={styling.addMemberForm}>
+             <div className="col-md-12" style={styling.addMemberCard}>
+                <h1 style={styling.title}>Add Employee</h1>
+                 <form style={styling.addMemberForm} className="text-center">
+
+                 <div className="row col justify-content-center">
+                    <div className="col-md-6 mt-2 mb-2">
                     <TextField
                         variant="outlined"
                         fullWidth
@@ -106,6 +111,8 @@ const handleDepartment = (x, y) => {
                         onChange={(e) => setMember({...member, firstName:e.target.value})}
                         label="First name"
                     />
+                   </div>
+                  <div className="col-md-6 mt-2 mb-2">
                     <TextField
                         variant="outlined"
                         fullWidth
@@ -114,6 +121,11 @@ const handleDepartment = (x, y) => {
                         onChange={(e) => setMember({...member, lastName:e.target.value})}
                         label="Last name"
                     />
+                    </div>
+                 </div>
+
+                 <div className="row col justify-content-center">
+                    <div className="col-md-6 mt-2 mb-2">
                     <TextField
                         variant="outlined"
                         fullWidth
@@ -122,6 +134,8 @@ const handleDepartment = (x, y) => {
                         onChange={(e) => setMember({...member, email:e.target.value})}
                         label="Email Id"
                     />
+                    </div>
+                    <div className="col-md-6 mt-2 mb-2">
                     <TextField
                         variant="outlined"
                         fullWidth
@@ -130,6 +144,11 @@ const handleDepartment = (x, y) => {
                         onChange={(e) => setMember({...member, contactNumber:e.target.value})}
                         label="Contact number"
                     />
+                    </div>
+                 </div>
+
+                 <div className="row col justify-content-center">
+                    <div className="col-md-6 mt-2 mb-2">
                     <Autocomplete
                         multiple
                         options={designations}
@@ -152,6 +171,8 @@ const handleDepartment = (x, y) => {
                         <TextField {...params} variant="outlined" label="Designation" />
                         )}
                     />
+                    </div>
+                    <div className="col-md-6 mt-2 mb-2">
                     <Autocomplete
                         multiple
                         options={departments}
@@ -174,10 +195,14 @@ const handleDepartment = (x, y) => {
                         <TextField {...params} variant="outlined" label="Department"  />
                         )}
                     />
-                      <Button variant="contained" color="primary" size="large" style={styling.inviteBtn} fullWidth onClick={handleInvitation}>Invite on board!</Button>
+                    </div>
+                 </div>
+                      <Button variant="contained" color="primary" className="mt-2" size="large" style={styling.inviteBtn} onClick={handleInvitation}>Invite on board!</Button>
                  </form>
-                  <Button variant="contained" color="secondary" style={styling.closeBtn} onClick={() => onClose(false)}><CloseIcon /></Button>
-             </div>
+                 <IconButton aria-label="close" style={styling.closeBtn} onClick={() => onClose(false)}>
+                    <CancelIcon color="secondary" fontSize="large"/>
+                 </IconButton>
+              </div>
            </div>
 }
 

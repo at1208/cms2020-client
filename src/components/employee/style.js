@@ -28,6 +28,11 @@ const SignInStyle = () => {
            },
            empContainer:{
               padding:"30px 0px 30px 0px",
+           },
+           closeBtn:{
+             position:"absolute",
+             right:"20px",
+             top:"30px"
            }
          }
 }

@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import MemberStyle from './style';
 import Layout from '../layout/layout'
-import AddMember from './addMember'
+import AddEmployee from './addEmployee'
 import Button from '@material-ui/core/Button';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import TextField from '@material-ui/core/TextField';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import { getMembers } from '../../actions/member';
+import Fade from 'react-reveal/Fade';
+
 
 const  styling = MemberStyle();
 
-const Member = () => {
-   const [addMember, setAddMember] = useState(false);
+const Employee = () => {
    const [members, setMember] = useState();
+   const [open, setOpen] = useState(false);
 
    const handleChange = () => {
-      setAddMember(true)
+      setOpen(true)
    }
    useEffect(() => {
       getMembers()
@@ -69,7 +71,7 @@ const employeeHeader = () => {
             </div>
             <div className="col-md-4">
                <div className="row justify-content-end">
-                 <Button variant="contained" style={styling.addEmp}>
+                 <Button variant="contained" style={styling.addEmp} onClick={handleChange}>
                    <i className="la la-plus" style={styling.plusIcon}/>
                    Add Employee
                  </Button>
@@ -109,18 +111,21 @@ const searchEmp = () => {
    return <>
            <Layout>
                <div  className="">
-                   <div>
-                     {employeeHeader()}
-                   </div>
-                   <div>
-                   {searchEmp()}
-                   </div>
-                   <div>
-                   {showMemberTable()}
-                   </div>
+                   {open && <Fade  top><AddEmployee onClose={() => setOpen(false)}/></Fade>}
+                   {!open && <div>
+                     <div>
+                       {employeeHeader()}
+                     </div>
+                     <div>
+                     {searchEmp()}
+                     </div>
+                     <div>
+                     {showMemberTable()}
+                     </div>
+                   </div>}
                </div>
            </Layout>
           </>
 }
 
-export default Member;
+export default Employee;
